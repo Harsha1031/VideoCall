@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <title>VideoCall</title>
+</head>
+<body>
+    <div style="width:100%;">
+        <div id="video-streams">
+        </div>
+
+        <div id="control-wrapper">
+            <div class="icon-wrapper">
+                <button class="control-icon" id="camera-btn">camera</button>
+            </div>
+
+            <div class="icon-wrapper">
+                <button class="control-icon" id="mic-btn">mic</button>
+            </div>
+
+            <div class="icon-wrapper">
+                <button class="control-icon" id="leave-btn" style="background:rgba(255,80,80,1);">leave</button>
+            </div>
+        </div> 
+    </div>
+    <script src="{% static 'Agora/AgoraRTC_N-4.9.3.js' %}"></script>
+    <script src="{% static 'JS/Stream.js' %}"></script>
+</body>
+</html>
