@@ -1,6 +1,9 @@
-const APP_ID = '8b8dcbe9c93e49d7907216fba6b44a42';
+// Risky app
+
+
+const APP_ID = 'b96b681221da412288f446dddf96d66a';
 const CHANNEL = "CousinsMasti";
-const TOKEN = "0068b8dcbe9c93e49d7907216fba6b44a42IACp+YG+zN/JNwPUlErRuNLZEfa0PkDKcVYkYSs1nHMZqoM8orUAAAAAEACciVDW6wUvYgEAAQDxBS9i";
+const TOKEN = "006b96b681221da412288f446dddf96d66aIABpnVHIxJTllAHpaUpKn7Gubf9/0/43Tbm8M2TOqBYv64M8orUAAAAAEADnfDPKFTwzYgEAAQASPDNi";
 let UID = null; 
 
 const client = AgoraRTC.createClient({mode:'rtc',codec:'vp8'});
@@ -30,20 +33,8 @@ let = handleUserLeft = async (user) =>{
     delete remoteUsers[user.uid];
     document.getElementById(`user-container-${user.uid}`).remove();
     let len = (Object.keys(remoteUsers)).length;   
-    if(len===1){
-        for(i of Object.keys(remoteUsers)){
-            console.log(`(userleft)user-container-${i}`);
-        document.getElementById(`user-container-${i}`).style.flexBasis = "50%";
-        document.getElementById(`user-container-${i}`).style.maxWidth= "100%";
-        }
-        document.getElementById(`user-container-${UID}`).style.maxWidth= "100%";
-    }
-    else if(len===0){
-        document.getElementById(`user-container-${UID}`).style.maxWidth= "100%";
-    }
-    else{
-        document.getElementById(`user-container-${UID}`).style.flexBasis = "48%";
-        
+    if(screen.width<=768){
+        document.getElementById(`user-container-${user.uid}`).style.maxWidth= "100%";
     }
 };
 
@@ -66,23 +57,8 @@ let handleUserJoin = async (user,mediaType) => {
     if(mediaType === 'audio'){
         user.audioTrack.play();
     }
-    if(len===1){
-        for(i of Object.keys(remoteUsers)){
-        document.getElementById(`user-container-${i}`).style.maxWidth= "100%";
-        }
-        document.getElementById(`user-container-${UID}`).style.flexBasis = "50%";
-        document.getElementById(`user-container-${UID}`).style.maxWidth= "100%";
-    }
-    else if(len===0){
-        document.getElementById(`user-container-${UID}`).style.maxWidth= "100%";
-    }
-    else{
-        for(i of Object.keys(remoteUsers)){
-        document.getElementById(`user-container-${i}`).style.flexBasis = "48%";
-        document.getElementById(`user-container-${i}`).style.maxWidth= "50%";
-        }
-        document.getElementById(`user-container-${UID}`).style.flexBasis = "48%";
-        document.getElementById(`user-container-${UID}`).style.maxWidth= "50%";
+    if(screen.width<=768){
+        document.getElementById(`user-container-${user.uid}`).style.maxWidth= "100%";
     }
 };
 
@@ -93,7 +69,7 @@ let leaveAndRemove = async () => {
     }
 
     await client.leave();
-    window.open('www.google.com','_self');
+    window.open('/','_self');
 };
 
 let toggleCamera = async (e) => {

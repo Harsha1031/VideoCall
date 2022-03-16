@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            text-align: center;
+            justify-content: center;
+        }
+        #butt{
+            font-size: medium;
+            background-color: rgb(3, 124, 124);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Welcome to Video Call App Developed by Sri Harsha</h3>  
+        <p style="font-size: large;">
+            Click the button to join the room
+        </p>
+        <a href="{% url 'home'%}"><button id="butt">Join</button></a>
+    </div>
+</body>
+</html>
